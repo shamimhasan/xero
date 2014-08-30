@@ -1,18 +1,26 @@
 <?php
 
-class TransactionController extends BaseController {
+/*
+ * methods: Accounts, BankTransactions, BrandingThemes, Contacts, CreditNotes, Currencies, Employees, ExpenseClaims, Invoices, Items, Journals, 
+ * ManualJournals, Organisation, Payments, Receipts, TaxRates, TrackingCategories, Users
+ *  
+ */
 
-    private $xero_url = 'https://api.xero.com/api.xro/2.0/';
-    private $xero_email = 'ben+test@skinnyandbald.com';
-    private $xero_password = 'Xq6rD3FHGffwsp';
+class TransactionController extends BaseController {
 
     public function getTransection() {
 
-        $xero = XeroLaravel::Organisation();
-        
+        $filter = array(
+//            "Name" => "Demo Creditcard",
+//            'status' => 'ACTIVE'
+        );
+//        $xero = XeroLaravel::BankTransactions($filter);
+        $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
+
         echo '<pre>';
         print_r($xero);
-        die('Im here');
+
+        die('im here');
         return View::make('transection/index');
     }
 
