@@ -54,7 +54,7 @@ class Xerobanktransection extends Command {
     protected function getArguments() {
 //        return [];
         return array(
-            array('name', InputArgument::OPTIONAL, 'Contact Name as an argument.'),
+            array('name', InputArgument::OPTIONAL, 'Category Name as an argument.'),
         );
     }
 
