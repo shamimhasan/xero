@@ -10,6 +10,7 @@ class TransactionController extends BaseController {
 
         $xero = XeroLaravel::Organisation();
         
+        echo '<pre>';
         print_r($xero);
         die('Im here');
         return View::make('transection/index');
