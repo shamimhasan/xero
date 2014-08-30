@@ -2,7 +2,7 @@
 
 /*
  * methods: Accounts, BankTransactions, BrandingThemes, Contacts, CreditNotes, Currencies, Employees, ExpenseClaims, Invoices, Items, Journals, 
- * ManualJournals, Organisation, Payments, Receipts, TaxRates, TrackingCategories, Users
+ * ManualJournals, Organisation, Payments, Receipts, TaxRates, TrackingCategories
  *  
  */
 
@@ -14,8 +14,8 @@ class TransactionController extends BaseController {
 //            "Name" => "Demo Creditcard",
 //            'status' => 'ACTIVE'
         );
-//        $xero = XeroLaravel::BankTransactions();
-        $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
+        $xero = XeroLaravel::BankTransactions(false, false, array("Contact.Name" => "KISSMetrics"));
+//        $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
 
         echo '<pre>';
         print_r($xero);

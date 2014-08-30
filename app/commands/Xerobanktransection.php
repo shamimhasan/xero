@@ -36,7 +36,11 @@ class Xerobanktransection extends Command {
      */
     public function fire() {
         //
-        $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
+        $arguments = array();
+        if ($name = $this->argument('name')) {
+            $arguments["Contact.Name"] = $name;
+        }
+        $xero = XeroLaravel::BankTransactions(false, false, $arguments);
 
         $xero_json = json_encode($xero);
 
@@ -48,10 +52,10 @@ class Xerobanktransection extends Command {
     }
 
     protected function getArguments() {
-        return [];
-//        return array(
-//            array('example', InputArgument::REQUIRED, 'An example argument.'),
-//        );
+//        return [];
+        return array(
+            array('name', InputArgument::OPTIONAL, 'Contact Name as an argument.'),
+        );
     }
 
     /**
