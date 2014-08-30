@@ -36,17 +36,24 @@ class Xerobanktransection extends Command {
      */
     public function fire() {
         //
-        $arguments = array();
+        $arguments = array(
+            "Status" => "AUTHORISED"
+        );
         if ($name = $this->argument('name')) {
             $arguments["Contact.Name"] = $name;
         }
         $xero = XeroLaravel::BankTransactions(false, false, $arguments);
 
         $xero_json = json_encode($xero);
-
-        $transaction = new Transaction;
-        $transaction->data = $xero_json;
-        $transaction->save();
+        if ($first = Transaction::first()) {
+            $transaction = Transaction::find($first->id);
+            $transaction->data = $xero_json;
+            $transaction->save();
+        } else {
+            $transaction = new Transaction;
+            $transaction->data = $xero_json;
+            $transaction->save();
+        }
 
         return [];
     }

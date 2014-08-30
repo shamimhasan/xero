@@ -18,12 +18,19 @@ class TransactionController extends BaseController {
 //        $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
 
         echo '<pre>';
-        print_r($xero);
+//        print_r($xero);
         $xero_json = json_encode($xero);
 
-        $transaction = new Transaction;
-        $transaction->data = $xero_json;
-        $transaction->save();
+        if ($first = Transaction::first()) {
+            $transaction = Transaction::find($first->id);
+            $transaction->data = $xero_json;
+            $transaction->save();
+        } else {
+            $transaction = new Transaction;
+            $transaction->data = $xero_json;
+            $transaction->save();
+        }
+
 
         die('im here');
         return View::make('transection/index');
