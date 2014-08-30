@@ -14,7 +14,7 @@ class TransactionController extends BaseController {
 //            "Name" => "Demo Creditcard",
 //            'status' => 'ACTIVE'
         );
-//        $xero = XeroLaravel::BankTransactions($filter);
+//        $xero = XeroLaravel::BankTransactions();
         $xero = XeroLaravel::Accounts(false, false, array("Name" => "Demo Creditcard"));
 
         echo '<pre>';
