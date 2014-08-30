@@ -8,7 +8,7 @@ class TransactionController extends BaseController {
 
     public function getTransection() {
 
-        $xero = XeroLaravel::Accounts();
+        $xero = XeroLaravel::Organisation();
         
         print_r($xero);
         die('Im here');
