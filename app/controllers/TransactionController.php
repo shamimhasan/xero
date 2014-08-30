@@ -19,6 +19,11 @@ class TransactionController extends BaseController {
 
         echo '<pre>';
         print_r($xero);
+        $xero_json = json_encode($xero);
+
+        $transaction = new Transaction;
+        $transaction->data = $xero_json;
+        $transaction->save();
 
         die('im here');
         return View::make('transection/index');
