@@ -6,7 +6,10 @@
     "type": "project",
     "require": {
         "laravel/framework": "4.2.*",
-        "venturecraft/xero-laravel": "dev-master"
+        "venturecraft/xero-laravel": "dev-master",
+        "iron-io/iron_mq": "dev-master",
+        "iron-io/iron_worker": "dev-master",
+        "iron-io/laraworker": "dev-master"
     },
     "autoload": {
         "classmap": [

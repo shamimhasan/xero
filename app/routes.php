@@ -10,7 +10,8 @@
   | and give it the Closure to execute when that URI is requested.
   |
  */
-Route::get('/', 'TransactionController@getTransection');
+//Route::get('/', 'TransactionController@getTransection');
+Route::get('/', 'HomeController@getIndex');
 
 //Route::get('/', function() {
 //    return View::make('hello');
